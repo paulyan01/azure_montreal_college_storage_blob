@@ -5,13 +5,13 @@ resource "azurerm_resource_group" "azureresourcegroup" {
 }
 resource "azurerm_storage_account" "azurermstorageaccount" {
   name                     = "MCIT-azurerm_strg_acc"
-  resource_group_name      = azurerm_resource_group.example.name
-  location                 = azurerm_resource_group.example.location
+  resource_group_name      = azurerm_resource_group.MCIT_resource_group
+  location                 = azurerm_resource_group.canada.central
   account_tier             = "Standard"
   account_replication_type = "LRS"
 }
 resource "azurerm_storage_container" "azurermcontainer" {
   name                  = "MCIT_azrm_container"
-  storage_account_name  = azurerm_storage_account.example.name
+  storage_account_name  = azurerm_storage_account.MCIT-azurerm_strg_acc
   container_access_type = "private"
 }
