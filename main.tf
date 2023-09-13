@@ -3,7 +3,7 @@ resource "azurerm_resource_group" "azureresourcegroup" {
   name     = "MCIT_resource_group"
   location = "Canada Central"
 }
-resource "azurerm_storage_account" "storage_account" {
+#resource "azurerm_storage_account" "storage_account" {
   name                     = "MCIT-azrm_strg_acc"
   resource_group_name      = app_grp
   location                 = Canada Central
