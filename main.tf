@@ -12,6 +12,6 @@ resource "azurerm_storage_account" "example" {
 }
 resource "azurerm_storage_container" "example" {
   name                  = "MCIT_azrm_container"
-  storage_account_name  = azurerm_storage_account.MCIT-azurerm_strg_acc
+  storage_account_name  = azurerm_storage_account.example.name
   container_access_type = "private"
 }
