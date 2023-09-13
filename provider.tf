@@ -4,7 +4,7 @@ terraform{
       source="hashicorp/azurerm"
       version=">=3.59.0"#This is the version of Azure Rm module
     }
-    required_version=">=1.5.7"  #This is the version of Terraform 
+    required_version=">=1.4.0"  #This is the version of Terraform 
   }
 }
 provider "azurerm" {
