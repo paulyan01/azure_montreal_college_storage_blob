@@ -21,4 +21,4 @@ resource "azurerm_storage_blob" "storage_blob" {
   storage_container_name = MCIT_azrm_contnr
   type                   = "Block"
   source                 = "some-local-file.zip"
-}
+}#
