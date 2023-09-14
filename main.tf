@@ -10,8 +10,15 @@ resource "azurerm_storage_account" "azurestorageaccount" {
   account_tier             = "Standard"
   account_replication_type = "LRS"
 }
-resource "azurerm_storage_container" "example" {
+resource "azurerm_storage_container" "azurestoragecontainer" {
   name                  = "mcitcontent"
   storage_account_name  = azurerm_storage_account.azurestorageaccount.name
   container_access_type = "private"
+}
+resource "azurerm_storage_blob" "azurestorageblob" {
+  name                   = "my-awesome-content.zip"
+  storage_account_name   = azurerm_storage_account.azurestorageaccount.name
+  storage_container_name = azurerm_storage_container.azurestoragecontainer.name
+  type                   = "Block"
+  source                 = "some-local-file.zip"
 }
