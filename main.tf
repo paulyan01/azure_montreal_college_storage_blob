@@ -5,8 +5,8 @@ resource "azurerm_resource_group" "azureresourcegroup" {
 }
 resource "azurerm_storage_account" "MCIT_storage_account" {
   name                     = "MCIT_storage_account"
-  resource_group_name      = MCIT_resource_group
-  location                 = Canada Central
+  resource_group_name      = azurerm_resource_group.azureresourcegroup.name
+  location                 = azurerm_resource_group.azureresourcegroup.canadacentral
   account_tier             = "Standard"
   account_replication_type = "LRS"
 }
