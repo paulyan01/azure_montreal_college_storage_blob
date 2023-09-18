@@ -12,4 +12,8 @@ variable "tenant_id"{
 }
 variable "account_tier"{
   type=string
+  default="Standard"
+}
+variable "prefix"{
+  default="mcitblob"
 }
