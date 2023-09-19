@@ -1,3 +1,9 @@
+locals{ 
+  
+}
+
+
+
 resource "azurerm_virtual_network" "mcitvmnet" {
   name                = "${var.prefix}-network"
   address_space       = var.address_space
