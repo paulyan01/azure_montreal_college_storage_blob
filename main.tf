@@ -1,4 +1,7 @@
 #This is an Azure Montreal College Tutorial for Storage Account creation--->Storage Container name Creation--->Storage Blob Creation
+locals{ 
+  cluster_names=["mcitk8s","mcitk8s2","mcitk8s3","mcitk8s4"]
+}
 resource "azurerm_resource_group" "azureresourcegroup" {
   name     = "MCIT_resource_group"
   location = "Canada Central"
@@ -23,7 +26,8 @@ resource "azurerm_storage_blob" "azurestorageblob" {
   source                 = "some-local-file.zip"
 }
 resource "azurerm_kubernetes_cluster" "k8scluster" {
-  name                = "${var.prefix}cluster"
+  for_each            ={for cluster in local.cluster_names:cluster=>cluster}
+  name                = "${var.prefix}cluster-${each.key}"
   location            = azurerm_resource_group.azureresourcegroup.location
   resource_group_name = azurerm_resource_group.azureresourcegroup.name
   dns_prefix          = "exampleaks1"
