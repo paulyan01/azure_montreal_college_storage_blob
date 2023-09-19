@@ -48,12 +48,12 @@ resource "azurerm_kubernetes_cluster" "k8scluster" {
 }
 
 output "client_certificate" {
-  value     = azurerm_kubernetes_cluster.k8scluster.kube_config[each.key].client_certificate
+  value     = azurerm_kubernetes_cluster.k8scluster.kube_config.[each.key].client_certificate
   sensitive = true
 }
 
 output "kube_config" {
-  value = azurerm_kubernetes_cluster.k8scluster[each.key].kube_config_raw
+  value = azurerm_kubernetes_cluster.k8scluster.[each.key].kube_config_raw
 
   sensitive = true
 }
