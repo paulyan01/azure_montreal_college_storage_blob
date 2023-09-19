@@ -17,3 +17,7 @@ variable "account_tier"{
 variable "prefix"{
   default="mcitblob"
 }
+variable "address_space"{
+  type=
+  default=
+}
