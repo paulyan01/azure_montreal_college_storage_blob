@@ -1,6 +1,6 @@
 resource "azurerm_virtual_network" "mcitvmnet" {
   name                = "${var.prefix}-network"
-  address_space       = ["10.0.0.0/16","10.0.1.0/24"]
+  address_space       = var.address_space
   location            = azurerm_resource_group.azureresourcegroup.location
   resource_group_name = azurerm_resource_group.azureresourcegroup.name
 }
