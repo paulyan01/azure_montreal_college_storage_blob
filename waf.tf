@@ -114,13 +114,13 @@ resource "azurerm_public_ip" "example" {
 
 # since these variables are re-used - a locals block makes this more maintainable
 locals {
-  backend_address_pool_name      = "${azurerm_virtual_network.example.name}-beap"
-  frontend_port_name             = "${azurerm_virtual_network.example.name}-feport"
-  frontend_ip_configuration_name = "${azurerm_virtual_network.example.name}-feip"
-  http_setting_name              = "${azurerm_virtual_network.example.name}-be-htst"
-  listener_name                  = "${azurerm_virtual_network.example.name}-httplstn"
-  request_routing_rule_name      = "${azurerm_virtual_network.example.name}-rqrt"
-  redirect_configuration_name    = "${azurerm_virtual_network.example.name}-rdrcfg"
+  backend_address_pool_name      = "${azurerm_virtual_network.mcitvmnet.name}-beap"
+  frontend_port_name             = "${azurerm_virtual_network.mcitvmnet.name}-feport"
+  frontend_ip_configuration_name = "${azurerm_virtual_network.mcitvmnet.name}-feip"
+  http_setting_name              = "${azurerm_virtual_network.mcitvmnet.name}-be-htst"
+  listener_name                  = "${azurerm_virtual_network.mcitvmnet.name}-httplstn"
+  request_routing_rule_name      = "${azurerm_virtual_network.mcitvmnet.name}-rqrt"
+  redirect_configuration_name    = "${azurerm_virtual_network.mcitvmnet.name}-rdrcfg"
 }
 
 resource "azurerm_application_gateway" "network" {
