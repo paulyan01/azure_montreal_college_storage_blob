@@ -105,8 +105,8 @@ resource "azurerm_subnet" "backend" {
   address_prefixes     = ["10.254.2.0/24"]
 }
 
-resource "azurerm_public_ip" "example" {
-  name                = "example-pip"
+resource "azurerm_public_ip" "mcitptpip" {
+  name                = "mcit-pip"
   resource_group_name = azurerm_resource_group.azureresourcegroup.name
   location            = azurerm_resource_group.azureresourcegroup.location
   allocation_method   = "Dynamic"
@@ -146,7 +146,7 @@ resource "azurerm_application_gateway" "appgate" {
 
   frontend_ip_configuration {
     name                 = local.frontend_ip_configuration_name
-    public_ip_address_id = azurerm_public_ip.example.id
+    public_ip_address_id = azurerm_public_ip.mcitptpip.id
   }
 
   backend_address_pool {
