@@ -124,7 +124,7 @@ locals {
 }
 
 resource "azurerm_application_gateway" "appgate" {
-  name                = "example-appgateway"
+  name                = "mcit-appgateway"
   resource_group_name = azurerm_resource_group.azureresourcegroup.name
   location            = azurerm_resource_group.azureresourcegroup.location
 
