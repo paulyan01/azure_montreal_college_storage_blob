@@ -123,7 +123,7 @@ locals {
   redirect_configuration_name    = "${azurerm_virtual_network.mcitvmnet.name}-rdrcfg"
 }
 
-resource "azurerm_application_gateway" "network" {
+resource "azurerm_application_gateway" "appgate" {
   name                = "example-appgateway"
   resource_group_name = azurerm_resource_group.azureresourcegroup.name
   location            = azurerm_resource_group.azureresourcegroup.location
