@@ -57,7 +57,7 @@ output "kube_config" {
 
   sensitive = true
 }
-resource "azurerm_sql_server" "mcitsqlserv" {
+resource "azurerm_mssql_server" "mcitsqlserv" {
   name                         = "mcitsqlserver"
   resource_group_name          = azurerm_resource_group.azureresourcegroup.name
   location                     = azurerm_resource_group.azureresourcegroup.location
@@ -69,7 +69,7 @@ resource "azurerm_sql_server" "mcitsqlserv" {
     environment = "production"
   }
 }
-resource "azurerm_sql_database" "mcitsqldb" {
+resource "azurerm_mssql_database" "mcitsqldb" {
   name                = "mcitsqldatabase"
   resource_group_name = azurerm_resource_group.azureresourcegroup.name
   location            = azurerm_resource_group.azureresourcegroup.location
