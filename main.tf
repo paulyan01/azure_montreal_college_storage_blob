@@ -26,7 +26,7 @@ resource "azurerm_storage_blob" "azurestorageblob" {
   source                 = "some-local-file.zip"
 }
 resource "azurerm_kubernetes_cluster" "k8scluster" {
-  for_each            ={for cluster in local.cluster_names:cluster=>cluster}
+  #for_each            ={for cluster in local.cluster_names:cluster=>cluster}
   name                = "${var.prefix}cluster-${each.key}"
   location            = azurerm_resource_group.azureresourcegroup.location
   resource_group_name = azurerm_resource_group.azureresourcegroup.name
