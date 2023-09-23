@@ -34,7 +34,7 @@ resource "azurerm_application_gateway" "appgate" {
   name                = "mcit-appgateway"
   resource_group_name = azurerm_resource_group.azureresourcegroup.name
   location            = azurerm_resource_group.azureresourcegroup.location
-  firewall_policy-id  = azurerm_web_application_firewall_policy.wafpol.id
+  firewall_policy_id  = azurerm_web_application_firewall_policy.wafpol.id
 
   sku {
     name     = "Standard_v2"
