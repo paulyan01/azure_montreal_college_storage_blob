@@ -70,7 +70,7 @@ resource "azurerm_application_gateway" "appgate" {
   }
   waf_configuration{
   enabled = true
-  firewqall_mode = "Prevention"
+  firewall_mode = "Prevention"
   rule_set_type = "Microsoft_BotManagerruleSet"
   rule_set_version = 3.1
   }
