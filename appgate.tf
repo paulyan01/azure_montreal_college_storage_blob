@@ -34,6 +34,7 @@ resource "azurerm_application_gateway" "appgate" {
   name                = "mcit-appgateway"
   resource_group_name = azurerm_resource_group.azureresourcegroup.name
   location            = azurerm_resource_group.azureresourcegroup.location
+  firewall_policy-id  = azurerm_web_application_firewall_policy.wafpol.id
 
   sku {
     name     = "Standard_v2"
@@ -79,7 +80,6 @@ resource "azurerm_application_gateway" "appgate" {
     frontend_ip_configuration_name = local.frontend_ip_configuration_name
     frontend_port_name             = local.frontend_port_name
     protocol                       = "Http"
-    firewall_policy_id             = azurerm_web_application_firewall_policy.wafpol.name
   }
 
   request_routing_rule {
