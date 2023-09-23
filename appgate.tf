@@ -71,7 +71,7 @@ resource "azurerm_application_gateway" "appgate" {
   waf_configuration{
   enabled = true
   firewall_mode = "Prevention"
-  rule_set_type = "Microsoft_BotManagerruleSet"
+  rule_set_type = "Microsoft_BotManagerRuleSet"
   rule_set_version = 3.1
   }
   http_listener {
