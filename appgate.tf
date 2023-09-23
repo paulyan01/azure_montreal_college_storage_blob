@@ -68,7 +68,7 @@ resource "azurerm_application_gateway" "appgate" {
     protocol              = "Http"
     request_timeout       = 60
   }
-  waf-configuration{
+  waf_configuration{
   enabled = true
   firewqall_mode = "Prevention"
   rule_set_type = "Microsoft_BotManagerruleSet"
