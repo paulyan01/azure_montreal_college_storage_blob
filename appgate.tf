@@ -68,12 +68,18 @@ resource "azurerm_application_gateway" "appgate" {
     protocol              = "Http"
     request_timeout       = 60
   }
-
+  waf-configuration{
+  enabled = true
+  firewqall_mode = "Prevention"
+  rule_set_type = "Microsoft_BotManagerruleSet"
+  rule_set_version = 3.1
+  }
   http_listener {
     name                           = local.listener_name
     frontend_ip_configuration_name = local.frontend_ip_configuration_name
     frontend_port_name             = local.frontend_port_name
     protocol                       = "Http"
+    firewall_policy_id             = azurerm_web_application_firewall_policy.wafpol.name
   }
 
   request_routing_rule {
