@@ -1,5 +1,5 @@
 output "id" {
   value = [
-    for name in local.name: name
+    for name in local.clusters_name: name
   ]
 }
