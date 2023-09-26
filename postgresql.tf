@@ -11,8 +11,8 @@ resource "azurerm_postgresql_server" "postserver" {
     geo_redundant_backup  = "Disabled"
   }
 
-  administrator_login          = "var.adminstartor_admin1"
-  administrator_login_password = "var.administrator_login_password1"
+  administrator_login          = var.adminstartor_admin1
+  administrator_login_password = var.administrator_login_password1
   version                      = "9.5"
   ssl_enforcement              = "Enabled"
 }
