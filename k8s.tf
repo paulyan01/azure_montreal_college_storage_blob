@@ -21,12 +21,12 @@ resource "azurerm_kubernetes_cluster" "k8scluster" {
 }
 
 output "client_certificate" {
-  value     = azurerm_kubernetes_cluster.k8scluster.kube_config.0.client_certificate
+  value     = [for paul in azurerm_kubernetes_cluster.k8scluster: paul.kube_config.0.client_certificate]
   sensitive = true
 }
 
 output "kube_config" {
-  value = azurerm_kubernetes_cluster.k8scluster.kube_config_raw
+  value = [for paul in azurerm_kubernetes_cluster.k8scluster: paul.kube_config_raw]
 
   sensitive = true
 }
