@@ -1,5 +1,5 @@
 resource "azurerm_kubernetes_cluster" "k8scluster" {
-  for_each            ={for paul in local.clusters_name:paul=>paul}
+  for_each            ={for cluster in local.clusters_name:cluster=>cluster}
   name                = "${var.prefix}cluster-${each.key}"
   location            = azurerm_resource_group.azureresourcegroup.location
   resource_group_name = azurerm_resource_group.azureresourcegroup.name
@@ -21,12 +21,12 @@ resource "azurerm_kubernetes_cluster" "k8scluster" {
 }
 
 output "client_certificate" {
-  value     = [for paul in azurerm_kubernetes_cluster.k8scluster: paul.kube_config.0.client_certificate]
+  value     = [for cluster in azurerm_kubernetes_cluster.k8scluster: cluster.kube_config.0.client_certificate]
   sensitive = true
 }
 
 output "kube_config" {
-  value = [for paul in azurerm_kubernetes_cluster.k8scluster: paul.kube_config_raw]
+  value = [for cluster in azurerm_kubernetes_cluster.k8scluster: cluster.kube_config_raw]
 
   sensitive = true
 }
