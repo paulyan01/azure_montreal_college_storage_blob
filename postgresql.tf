@@ -1,4 +1,4 @@
-resource "azurerm_postgresql_server" "postserver" {
+*/resource "azurerm_postgresql_server" "postserver" {
   name                = "postgresql-server-1"
   location            = "${azurerm_resource_group.azureresourcegroup.location}"
   resource_group_name = "${azurerm_resource_group.azureresourcegroup.name}"
@@ -24,3 +24,4 @@ resource "azurerm_postgresql_database" "postsqldb" {
   charset             = "UTF8"
   collation           = "English_United States.1252"
 }
+/*
