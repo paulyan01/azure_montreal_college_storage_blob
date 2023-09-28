@@ -22,7 +22,7 @@ resource "azurerm_storage_container" "azurestoragecontainer" {
 }
 resource "azurerm_storage_blob" "azurestorageblob" {
   for_each               = {for blob in local.storage_name:blob=>blob}
-  name                   = "my-awesome-content.zip-${each.key}"
+  name                   = "${var.prefix}my-awesome-content.zip-${each.key}"
   storage_account_name   = azurerm_storage_account.azurestorageaccount.name
   storage_container_name = azurerm_storage_container.azurestoragecontainer.name
   type                   = "Block"
