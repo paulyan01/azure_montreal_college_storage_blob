@@ -1,4 +1,4 @@
-*/
+/*
 resource "azurerm_postgresql_server" "postserver" {
   name                = "postgresql-server-1"
   location            = "${azurerm_resource_group.azureresourcegroup.location}"
