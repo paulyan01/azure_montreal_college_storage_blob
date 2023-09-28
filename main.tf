@@ -1,7 +1,7 @@
 #This is an Azure Montreal College Tutorial for Storage Account creation--->Storage Container name Creation--->Storage Blob Creation
 locals{ 
   storage_name= ["north","south","east","west"]
-#  clusters_name= ["paul","saj","jade","douglas","emannuel","olarewaju","oladipupo"]
+  clusters_name= ["paul","saj","jade","douglas","emannuel","olarewaju","oladipupo"]
 #  cluster_names=["mcitk8s","mcitk8s2","mcitk8s3","mcitk8s4"]
 }
 resource "azurerm_resource_group" "azureresourcegroup" {
