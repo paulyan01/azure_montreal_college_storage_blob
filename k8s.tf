@@ -18,6 +18,10 @@ resource "azurerm_kubernetes_cluster" "k8scluster" {
   tags = {
     Environment = "Production"
   }
+service_principal {
+    client_id     = var.client_id
+    client_secret = var.client_secret
+  }
 }
 
 output "client_certificate" {
@@ -30,10 +34,6 @@ output "kube_config" {
 
   sensitive = true
 }
-service_principal {
-    client_id     = var.client_id
-    client_secret = var.client_secret
-  }
 resource "azurerm_kubernetes_cluster_node_pool" "clusterpool" {
   for_each              = {for pool in local.pool_name: pool=>pool}
   name                  = "internal"
