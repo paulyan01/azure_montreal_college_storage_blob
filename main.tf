@@ -2,7 +2,7 @@
 locals{ 
   storage_name= ["north","south","east","west"]
   clusters_name= ["paul","saj","jade","douglas","emannuel","olarewaju","oladipupo"]
-  local.pool_name= ["bread","lettuce","tomato","bacon","mayo"]
+  pool_name= ["bread","lettuce","tomato","bacon","mayo"]
 #  cluster_names=["mcitk8s","mcitk8s2","mcitk8s3","mcitk8s4"]
 }
 resource "azurerm_resource_group" "azureresourcegroup" {
