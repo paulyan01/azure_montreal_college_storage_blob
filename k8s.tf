@@ -32,7 +32,7 @@ output "kube_config" {
 }
 resource "azurerm_kubernetes_cluster_node_pool" "clusterpool" {
   for_each              = azurerm_kubernetes_cluster.k8scluster
-  name                  = "${each.value.name}"
+  name                  = "${each.key}"
   kubernetes_cluster_id = each.value.id
   vm_size               = "Standard_DS2_v2"
   node_count            = 1
