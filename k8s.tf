@@ -34,7 +34,6 @@ service_principal {
     client_id     = var.client_id
     client_secret = var.client_secret
   }
-}
 resource "azurerm_kubernetes_cluster_node_pool" "clusterpool" {
   for_each              = {for pool in local.pool_name: pool=>pool}
   name                  = "internal"
@@ -45,4 +44,3 @@ resource "azurerm_kubernetes_cluster_node_pool" "clusterpool" {
   tags = {
     Environment = "Production"
   }
-}
