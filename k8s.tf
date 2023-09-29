@@ -44,3 +44,4 @@ resource "azurerm_kubernetes_cluster_node_pool" "clusterpool" {
   tags = {
     Environment = "Production"
   }
+}
