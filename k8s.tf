@@ -32,7 +32,7 @@ output "kube_config" {
 }
 service_principal {
     client_id     = var.client_id
-    client_secret = var.cliebt_secret
+    client_secret = var.client_secret
   }
 }
 resource "azurerm_kubernetes_cluster_node_pool" "clusterpool" {
