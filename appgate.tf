@@ -31,8 +31,8 @@ locals {
 }
 
 resource "azurerm_application_gateway" "appgate" {
-  for_each            = {for app in local.appgt_name: app=>app}
-  name                = "${var.prefix}-appgateway-${each.key}"
+  for_each            = azurerm_web_application_firewall_policy.wafpol
+  name                = "${each.key}"
   resource_group_name = azurerm_resource_group.azureresourcegroup.name
   location            = azurerm_resource_group.azureresourcegroup.location
   firewall_policy_id  = azurerm_web_application_firewall_policy.wafpol.id
