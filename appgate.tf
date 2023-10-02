@@ -80,7 +80,7 @@ resource "azurerm_application_gateway" "appgate" {
     frontend_ip_configuration_name = local.frontend_ip_configuration_name
     frontend_port_name             = local.frontend_port_name
     protocol                       = "Http"
-    firewall_policy_id             = each.value.key
+    firewall_policy_id             = each.value.id
   }
 
   request_routing_rule {
