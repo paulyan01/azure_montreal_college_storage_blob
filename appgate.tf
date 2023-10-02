@@ -35,7 +35,7 @@ resource "azurerm_application_gateway" "appgate" {
   name                = "${each.key}"
   resource_group_name = azurerm_resource_group.azureresourcegroup.name
   location            = azurerm_resource_group.azureresourcegroup.location
-  firewall_policy_id  = azurerm_web_application_firewall_policy.wafpol.id[each.key]
+  firewall_policy_id  = azurerm_web_application_firewall_policy.wafpol[each.key].id
 
   sku {
     name     = "Standard_v2"
