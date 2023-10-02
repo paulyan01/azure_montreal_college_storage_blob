@@ -1,6 +1,6 @@
 resource "azurerm_web_application_firewall_policy" "wafpol" {
-  for_each            =azurerm_application_gateway.appgate
-  name                = "${each.key}"
+  for_each            ={for app in local.appgt_name: app=>app}
+  name                = "${var.prefix}-wafpolicy-${each.key}"
   resource_group_name = azurerm_resource_group.azureresourcegroup.name
   location            = azurerm_resource_group.azureresourcegroup.location
 
