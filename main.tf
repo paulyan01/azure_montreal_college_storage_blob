@@ -3,6 +3,7 @@ locals{
   storage_name= ["north","south","east","west"]
 #  clusters_name= ["paul","saj","jade","douglas","emannuel","olarewaju","oladipupo"]
   node_name= ["earth","wind","fire","water","air"]
+  appgt_name= ["batman","robin","redhood","nightwing","batgirl"]
   vm_name= ["bread","lettuce","tomato","bacon","mayonaise"]
 #  cluster_names=["mcitk8s","mcitk8s2","mcitk8s3","mcitk8s4"]
 }
