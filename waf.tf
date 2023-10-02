@@ -1,5 +1,6 @@
 resource "azurerm_web_application_firewall_policy" "wafpol" {
-  name                = "mcit-wafpolicy"
+  for_each            =azurerm_application_gateway.appgate
+  name                = "${each.key}"
   resource_group_name = azurerm_resource_group.azureresourcegroup.name
   location            = azurerm_resource_group.azureresourcegroup.location
 
