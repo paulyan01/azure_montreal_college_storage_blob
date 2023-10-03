@@ -7,7 +7,8 @@ resource "azurerm_service_plan" "azserplan" {
 }
 
 resource "azurerm_linux_web_app" "linwebapp" {
-  name                = "${var.prefix}-linwebapp"
+  for_each            = {for linux in local.linux_name: linux=>linux}
+  name                = "${var.prefix}-linwebapp-${each.key}"
   resource_group_name = azurerm_resource_group.azureresourcegroup.name
   location            = azurerm_service_plan.azserplan.location
   service_plan_id     = azurerm_service_plan.azserplan.id
