@@ -5,6 +5,7 @@ locals{
   clusters_name= ["earth","wind","fire","water","heart"]
   appgt_name= ["batman","robin","redhood","nightwing","batgirl"]
   vm_name= ["bread","lettuce","tomato","bacon","mayonaise"]
+  linux_name= ["red","blue","yellow","black","pink"]
 #  cluster_names=["mcitk8s","mcitk8s2","mcitk8s3","mcitk8s4"]
 }
 resource "azurerm_resource_group" "azureresourcegroup" {
