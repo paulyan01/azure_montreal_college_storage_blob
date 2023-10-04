@@ -14,7 +14,7 @@ resource "azurerm_linux_web_app" "linwebapp" {
   service_plan_id     = azurerm_service_plan.azserplan.id
 
   site_config {}
-}/*
+}
 resource "azurerm_service_plan" "azserplan" {
   for_each            ={for sp in local.linux_app_list: "$sp.name"=>sp }
   name                = each.value.name
