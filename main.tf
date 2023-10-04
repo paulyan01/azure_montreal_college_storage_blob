@@ -7,6 +7,18 @@ locals{
   vm_name= ["bread","lettuce","tomato","bacon","mayonaise"]
   linux_name= ["red","blue","yellow","black","pink"]
 #  cluster_names=["mcitk8s","mcitk8s2","mcitk8s3","mcitk8s4"]
+  linux_app=[for f in fileset("${path.module}/configs", "[^_]*.yaml") : yamldecode(file("${path.module}/configs/${f}"))]
+  linux_app_list = flatten([
+    for app in local.linux_app : [
+      for linuxapps in try(app.linux_app, []) :{
+        name=linuxapps.name
+        resource_group_name=linuxapps.resource_group
+        location=linuxapps.location
+        os_type=linuxapps.os_type
+        sku_name=linuxapps.sku_name     
+      }
+    ]
+])
 }
 resource "azurerm_resource_group" "azureresourcegroup" {
   name     = "MCIT_resource_group"
