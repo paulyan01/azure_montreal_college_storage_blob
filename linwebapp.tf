@@ -7,7 +7,7 @@ resource "azurerm_service_plan" "azserplan" {
   sku_name            = each.value.sku_name
 }
 
-resource "azurerm_linux_web_app" "batcha06webapp" {
+resource "azurerm_linux_web_app" "linwebapp" {
   for_each            = azurerm_service_plan.azserplan
   name                = each.value.name
   resource_group_name = azurerm_resource_group.azureresourcegroup.name
