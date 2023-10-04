@@ -1,0 +1,6 @@
+linuxapp:
+  - name: firstlinuxapp
+    resource_group: azureresourcegroup
+    location: "West Europe"            
+    os_type: Linux
+    sku_name: P1v2
