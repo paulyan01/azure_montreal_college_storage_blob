@@ -21,8 +21,9 @@ locals{
 ])
 }
 resource "azurerm_resource_group" "azureresourcegroup" {
-  name     = "MCIT_resource_group"
-  location = "Canada Central"
+for_each={for rg in local.linux_app_list:"${rg.name} => rg}  
+  name     = each.value.name
+  location = each.value.location
 }
 resource "azurerm_storage_account" "azurestorageaccount" {
   name                     = "${var.prefix}storageaccount"
