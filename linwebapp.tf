@@ -15,7 +15,7 @@ resource "azurerm_linux_web_app" "linwebapp" {
 
   site_config {}
 }
-/*resource "azurerm_service_plan" "azserplan" {
+resource "azurerm_service_plan" "azserplan1" {
   for_each            ={for sp in local.linux_app_list: "$sp.name"=>sp }
   name                = each.value.name
   resource_group_name = azurerm_resource_group.azureresourcegroup.name
@@ -24,8 +24,8 @@ resource "azurerm_linux_web_app" "linwebapp" {
   sku_name            = each.value.sku_name
 }
 
-resource "azurerm_linux_web_app" "linwebapp" {
-  for_each            = azurerm_service_plan.azserplan
+resource "azurerm_linux_web_app" "linwebapp1" {
+  for_each            = azurerm_service_plan.azserplan1
   name                = each.value.name
   resource_group_name = azurerm_resource_group.azureresourcegroup.name
   location            = azurerm_resource_group.azureresourcegroup.location
