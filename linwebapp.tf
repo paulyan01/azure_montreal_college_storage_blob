@@ -53,3 +53,4 @@ resource "azurerm_linux_web_app" "linwebapp" {
 
   site_config {}
 }
+/*
