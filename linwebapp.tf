@@ -17,7 +17,8 @@ for_each={for rg in local.linux_app_list:"${rg.name} => rg}
   name     = each.value.name
   location = each.value.location
 }
-/*resource "azurerm_service_plan" "azserplan" {
+/*
+resource "azurerm_service_plan" "azserplan" {
   for_each            ={for sp in local.linux_app_list: "$sp.name"=>sp }
   name                = each.value.name
   resource_group_name = azurerm_resource_group.azureresourcegroup.name
