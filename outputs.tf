@@ -13,3 +13,4 @@ output "linux_app_list"{
       for name in local.linux_app_list: name
   ]
 }
+*/
