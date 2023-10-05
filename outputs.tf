@@ -3,7 +3,7 @@ output "id" {
     for name in local.clusters_name: name
   ]
 }
-output "linux_app"{
+/*output "linux_app"{
     value = [
       for name in local.linux_app: name
   ]
