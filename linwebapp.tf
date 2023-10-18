@@ -30,6 +30,7 @@ resource "azurerm_linux_web_app" "linwebapp1" {
   resource_group_name = azurerm_resource_group.azureresourcegroup.name
   location            = azurerm_resource_group.azureresourcegroup.location
   service_plan_id     = each.value.id
+}
 
 resource "azurerm_windows_web_app" "winwebapp" {
   name                = "example"
