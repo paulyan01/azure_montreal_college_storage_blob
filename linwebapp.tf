@@ -22,6 +22,8 @@ resource "azurerm_service_plan" "azserplan1" {
   location            = azurerm_resource_group.azureresourcegroup.location
   os_type             = each.value.os_type
   sku_name            = each.value.sku_name
+  
+  site_config {}
 }
 
 resource "azurerm_linux_web_app" "linwebapp1" {
