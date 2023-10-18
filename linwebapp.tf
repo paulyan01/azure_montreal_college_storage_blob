@@ -12,8 +12,6 @@ resource "azurerm_linux_web_app" "linwebapp" {
   resource_group_name = azurerm_resource_group.azureresourcegroup.name
   location            = azurerm_service_plan.azserplan.location
   service_plan_id     = azurerm_service_plan.azserplan.id
-
-  site_config {}
 }
 resource "azurerm_service_plan" "azserplan1" {
   for_each            ={for sp in local.linux_app_list: "$sp.name"=>sp }
@@ -32,6 +30,8 @@ resource "azurerm_linux_web_app" "linwebapp1" {
   resource_group_name = azurerm_resource_group.azureresourcegroup.name
   location            = azurerm_resource_group.azureresourcegroup.location
   service_plan_id     = each.value.id
+
+  site_config {}
 }
 
 resource "azurerm_windows_web_app" "winwebapp" {
